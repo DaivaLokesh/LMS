@@ -1,0 +1,37 @@
+.about-container {
+  padding: 50px 70px;
+  max-width: 900px;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-container h1 {
+  color: #2b6777;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-container h2 {
+  color: #52ab98;
+  margin-top: 30px;
+}
+
+.about-container p {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.about-container ul {
+  margin-top: 15px;
+  line-height: 1.8;
+  list-style: none;
+  padding: 0;
+}
+
+.about-container li::before {
+  content: "• ";
+  color: #52ab98;
+  font-weight: bold;
+}

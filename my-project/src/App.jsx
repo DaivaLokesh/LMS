@@ -10,6 +10,10 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import About from "./Components/About";
 import Home from "./Components/Home";
 import MyCourses from "./Components/MyCourses";
+import InstructorNavbar from "./Components/InstructorNavbar";
+import AdminNavbar from "./Components/AdminNavbar";
+import AddContent from "./Components/AddContent";
+import AddAssignment from "./Components/AddAssignment";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -44,9 +48,19 @@ function App() {
             </ProtectedRoute>
           }
           />
+          <Route path="/mycourses" element={<MyCourses />} /> {/* Enrolled courses */}
           {localStorage.getItem("studentId") && (
           <Route path="/mycourses" element={<MyCourses/>}/>
           )}
+
+          <Route path="/instructorNavbar" element={<InstructorNavbar />}/>
+        <Route path="/add-content" element={<AddContent/>} />
+        <Route path="/add-assignment" element={<AddAssignment/>} />
+        <Route path="/courses/:id/add-content" element={<AddContent />} />
+        <Route path="/courses/:id/add-assignment" element={<AddAssignment />} />
+
+        {/* Admin */}
+        <Route path="/adminNavbar" element={<ProtectedRoute role="admin"><AdminNavbar /></ProtectedRoute>} />
       </Routes>
     </>
   );

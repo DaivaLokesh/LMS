@@ -1,4 +1,4 @@
-.mycourses-container {
+/* .mycourses-container {
   padding: 40px;
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -58,4 +58,98 @@
   font-size: 1.2rem;
   margin-top: 50px;
   color: #007bff;
+} */
+.courses-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.courses-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.course-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.course-card h3 {
+  margin-bottom: 8px;
+  font-size: 1.6rem;
+  color: #007bff;
+}
+
+.course-code {
+  font-weight: 500;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.course-desc {
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.resources-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.resource-card {
+  flex: 1 1 45%;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-2px);
+}
+
+.resource-card.pdf {
+  background-color: #dc3545; /* red for PDF */
+}
+
+.resource-card.video {
+  background-color: #17a2b8; /* blue for Video */
+}
+
+.resource-card.link {
+  background-color: #28a745; /* green for external links */
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 40px;
+  color: #555;
+}
+
+.error {
+  color: #d63333;
 }

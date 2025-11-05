@@ -142,6 +142,26 @@ app.post("/api/students/:studentId/enroll/:courseId", async (req, res) => {
   }
 });
 
+app.post("/courses/:id/resources", async (req, res) => {
+  const { title, type, url } = req.body;
+  const { id } = req.params;
+
+  if (!title || !url) return res.status(400).json({ message: "Title and URL are required" });
+
+  try {
+    const course = await Course.findById(id);
+    if (!course) return res.status(404).json({ message: "Course not found" });
+
+    course.resources.push({ title, type, url });
+    await course.save();
+
+    res.json({ message: "Resource added successfully!", course });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 app.get("/api/enrollments/:studentId", async (req, res) => {
   try {
     const { studentId } = req.params;

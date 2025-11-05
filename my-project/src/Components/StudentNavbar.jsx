@@ -16,7 +16,7 @@ function StudentNavbar() {
 
         <ul className="nav-links">
           <li><Link to="/courses">All Courses</Link></li>
-          <li><Link to="/my-courses">My Courses</Link></li>
+          <li><Link to="/mycourses">My Courses</Link></li>
           <li><Link to="/profile">Profile</Link></li>
           <li><button onClick={handleLogout} className="logout-btn">Logout</button></li>
         </ul>

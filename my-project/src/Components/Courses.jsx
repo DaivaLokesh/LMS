@@ -20,7 +20,7 @@ const Courses = () => {
         {courses.map((course) => (
           <div className="course-card" key={course._id}>
             <h2>{course.name}</h2>
-            <p><strong>Code:</strong> {course.code}</p>
+            <p><strong>Code:</strong> {course.ccode}</p>
             <p className="course-desc">{course.description}</p>
             <Link to={`/courses/${course._id}`} className="details-btn">
               View Details

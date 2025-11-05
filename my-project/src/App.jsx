@@ -28,8 +28,6 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/my-courses" element={<MyCourses />} />
-
         <Route
           path="/courses"
           element={
@@ -37,7 +35,7 @@ function App() {
               <Courses />
             </ProtectedRoute>
           }
-        />
+          />
         <Route
           path="/courses/:id"
           element={
@@ -45,7 +43,10 @@ function App() {
               <CourseDetails />
             </ProtectedRoute>
           }
-        />
+          />
+          {localStorage.getItem("studentId") && (
+          <Route path="/mycourses" element={<MyCourses/>}/>
+          )}
       </Routes>
     </>
   );

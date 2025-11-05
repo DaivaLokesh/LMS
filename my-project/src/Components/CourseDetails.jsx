@@ -36,7 +36,7 @@ const CourseDetails = () => {
   return (
     <div className="course-details-container">
       <h1>{course.name}</h1>
-      <p><strong>Code:</strong> {course.code}</p>
+      <p><strong>Code:</strong> {course.ccode}</p>
       <p>{course.description}</p>
       <button className="enroll-btn" onClick={handleEnroll}>Enroll</button>
       {message && <p className="message">{message}</p>}

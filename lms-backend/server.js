@@ -142,14 +142,29 @@ app.post("/api/students/:studentId/enroll/:courseId", async (req, res) => {
   }
 });
 
-// ✅ Get all enrolled courses for a student
-// ✅ Get all enrolled courses for a student
 app.get("/api/enrollments/:studentId", async (req, res) => {
   try {
+    const { studentId } = req.params;
+    console.log("Fetching enrollments for student:", studentId);
+
     const enrolled = await Enrollment.find({ studentId }).populate("courseId");
-    const courses = enrolled.map((e) => e.courseId);
+    console.log("Found enrollments:", enrolled);
+
+    if (!enrolled || enrolled.length === 0) {
+      return res.status(200).json([]); // No courses found
+    }
+
+    const courses = enrolled.map((e) => ({
+      _id: e.courseId?._id,
+      name: e.courseId?.name,
+      code: e.courseId?.code,
+      ccode: e.courseId?.ccode,
+      description: e.courseId?.description,
+    }));
+
     res.json(courses);
   } catch (err) {
+    console.error("Enrollment fetch error:", err);
     res.status(500).json({ message: "Error fetching enrolled courses" });
   }
 });
